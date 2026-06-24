@@ -1,4 +1,4 @@
-# WLK Raid BIS Helper V1.0
+# WLK Raid BIS Helper V1.1
 
 A lightweight static web app for checking WotLK Classic raid BIS gear by phase, raid size, difficulty, class, and specialization.
 
@@ -11,6 +11,8 @@ A lightweight static web app for checking WotLK Classic raid BIS gear by phase, 
 - View BIS drops grouped by raid and boss
 - Search by boss, item name, or gear slot
 - Copy the current BIS list for sharing
+- Show weapon subtypes such as one-hand sword, one-hand mace, dagger, bow, shield, and relic type when available
+- Search by weapon subtype, for example `单手剑`, `匕首`, `弓`, or `盾牌`
 - Runs entirely in the browser with no backend, database, or login required
 
 ## How To Use
@@ -45,6 +47,19 @@ This project is a static site. To publish it with GitHub Pages:
 ## Data Notes
 
 The BIS data is based on WotLK Classic Wowhead BIS references and is organized for raid lookup convenience. Item names are kept in English to preserve accuracy and avoid mistranslation, while the interface, class names, specialization names, raid names, boss names, and labels are presented in Chinese.
+
+## Version History
+
+### V1.1
+
+- Added weapon subtype labels after weapon slots, such as `武器 · 单手剑`, `武器 · 匕首`, `武器 · 弓`, and `盾牌`.
+- Added search support for weapon subtypes.
+- Restricted subtype detection to real weapon, ranged weapon, off-hand, shield, and relic slots to avoid false labels on items such as necklaces, gloves, and helmets.
+- Updated project title from V1.0 to V1.1.
+
+### V1.0
+
+- Initial static BIS lookup tool with phase, raid size, difficulty, class, specialization, and keyword filters.
 
 ## Files
 

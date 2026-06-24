@@ -140,6 +140,7 @@ function filterRecords() {
           record.itemName,
           record.itemNameZh,
           record.slot,
+          record.itemType,
           record.source,
           record.location,
         ].join(" "),
@@ -172,6 +173,7 @@ function escapeHtml(value) {
 function renderItem(record) {
   const name = record.itemNameZh || record.itemName;
   const subName = record.itemNameZh ? record.itemName : "";
+  const slotLabel = record.itemType === "盾牌" ? "盾牌" : record.itemType ? `${record.slot} · ${record.itemType}` : record.slot;
   const sizes = record.sizes.filter((size) => size !== "未标注").join(" / ") || "人数未标注";
   const difficulty = record.difficulty === "未标注" ? "普通/未标注" : record.difficulty;
   const icon = iconUrl(record.icon);
@@ -186,7 +188,7 @@ function renderItem(record) {
         ${renderStats(record)}
       </div>
       <div class="item-slot">
-        <span class="slot-pill">${escapeHtml(record.slot)}</span>
+        <span class="slot-pill">${escapeHtml(slotLabel)}</span>
       </div>
       <div class="source">
         <div>${escapeHtml(record.source || "来源未标注")}</div>
