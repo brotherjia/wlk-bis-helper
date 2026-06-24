@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WLK 团本 BIS 助手 V1.0</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="筛选">
+        <div class="brand">
+          <div class="brand-mark">WLK</div>
+          <div>
+            <h1>团本 BIS 助手 V1.0</h1>
+            <p id="data-note">Wowhead WotLK Classic BIS</p>
+          </div>
+        </div>
+
+        <form class="filters" id="filters">
+          <label>
+            <span>阶段</span>
+            <select id="phaseSelect"></select>
+          </label>
+          <div class="filter-grid">
+            <label>
+              <span>人数</span>
+              <select id="sizeSelect">
+                <option value="全部">全部</option>
+                <option value="10人">10人</option>
+                <option value="25人">25人</option>
+              </select>
+            </label>
+            <label>
+              <span>难度</span>
+              <select id="difficultySelect">
+                <option value="全部">全部</option>
+                <option value="普通">普通</option>
+                <option value="英雄">英雄</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span>职业</span>
+            <select id="classSelect"></select>
+          </label>
+          <label>
+            <span>专精</span>
+            <select id="specSelect"></select>
+          </label>
+          <label>
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="Boss / 装备 / 装备位" />
+          </label>
+        </form>
+
+        <div class="summary-strip">
+          <div>
+            <strong id="bossCount">0</strong>
+            <span>Boss</span>
+          </div>
+          <div>
+            <strong id="itemCount">0</strong>
+            <span>BIS</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <header class="toolbar">
+          <div>
+            <p class="eyebrow" id="phaseLabel">P1</p>
+            <h2 id="resultTitle">阶段 BIS</h2>
+          </div>
+          <div class="toolbar-actions">
+            <button id="copyButton" type="button">复制清单</button>
+            <a id="sourceLink" href="./data.js" target="_blank" rel="noreferrer">数据</a>
+          </div>
+        </header>
+
+        <div class="notice" id="notice"></div>
+        <div class="results" id="results"></div>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
