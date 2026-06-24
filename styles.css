@@ -376,6 +376,108 @@ button:hover,
   color: var(--muted);
 }
 
+.feedback-link {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 20;
+  border: 1px solid #405468;
+  background: rgba(19, 34, 50, 0.94);
+  color: #cbe4ff;
+  padding: 9px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+}
+
+.feedback-link:hover,
+.back-link:hover,
+.feedback-actions a:hover {
+  border-color: var(--gold);
+}
+
+.feedback-page {
+  min-height: 100vh;
+  display: grid;
+  align-items: start;
+  justify-items: center;
+  padding: 28px 16px;
+}
+
+.feedback-panel {
+  width: min(820px, 100%);
+  border: 1px solid var(--line);
+  background: rgba(24, 27, 33, 0.96);
+  border-radius: 8px;
+  padding: 22px;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+
+.back-link,
+.feedback-actions a {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.feedback-form {
+  display: grid;
+  gap: 14px;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 160px;
+  border: 1px solid var(--line);
+  background: #0f1217;
+  color: var(--text);
+  padding: 10px;
+  border-radius: 6px;
+  font: inherit;
+}
+
+textarea:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.feedback-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feedback-note {
+  color: var(--muted);
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 @media (max-width: 980px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -425,6 +527,20 @@ button:hover,
 
   .boss-header {
     align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feedback-link {
+    left: 14px;
+    bottom: 14px;
+  }
+
+  .feedback-header,
+  .feedback-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-header {
     flex-direction: column;
   }
 }

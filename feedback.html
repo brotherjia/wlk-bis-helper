@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>提交修改意见 - WLK 团本 BIS 助手 V1.1</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="feedback-page">
+      <section class="feedback-panel">
+        <header class="feedback-header">
+          <div>
+            <p class="eyebrow">WLK 团本 BIS 助手 V1.1</p>
+            <h1>提交修改意见</h1>
+          </div>
+          <a class="back-link" href="./index.html">返回查询</a>
+        </header>
+
+        <form class="feedback-form" id="feedbackForm">
+          <label>
+            <span>标题</span>
+            <input id="feedbackTitle" type="text" placeholder="例如：P4 战斗贼 25H 某装备来源需要修正" required />
+          </label>
+
+          <div class="feedback-grid">
+            <label>
+              <span>职业/专精</span>
+              <input id="feedbackSpec" type="text" placeholder="例如：盗贼 / 战斗" />
+            </label>
+            <label>
+              <span>阶段/人数/难度</span>
+              <input id="feedbackScope" type="text" placeholder="例如：P4 / 25人 / 英雄" />
+            </label>
+          </div>
+
+          <label>
+            <span>涉及装备或 Boss</span>
+            <input id="feedbackTarget" type="text" placeholder="例如：Havoc's Call / 巫妖王" />
+          </label>
+
+          <label>
+            <span>修改意见</span>
+            <textarea id="feedbackBody" rows="8" placeholder="请写清楚你认为哪里不对、建议改成什么，以及参考来源。" required></textarea>
+          </label>
+
+          <div class="feedback-actions">
+            <button type="submit">生成留言</button>
+            <a href="https://github.com/brotherjia/wlk-bis-helper/issues" target="_blank" rel="noreferrer">查看留言板</a>
+          </div>
+        </form>
+
+        <p class="feedback-note">
+          提交后会打开 GitHub Issue 页面，内容会自动填好。确认无误后点击 GitHub 页面里的提交按钮即可。
+        </p>
+      </section>
+    </main>
+
+    <script>
+      const repoIssueUrl = "https://github.com/brotherjia/wlk-bis-helper/issues/new";
+      const form = document.querySelector("#feedbackForm");
+
+      function value(id) {
+        return document.querySelector(id).value.trim() || "未填写";
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const title = document.querySelector("#feedbackTitle").value.trim();
+        const body = [
+          "## 修改意见",
+          value("#feedbackBody"),
+          "",
+          "## 相关信息",
+          `- 职业/专精：${value("#feedbackSpec")}`,
+          `- 阶段/人数/难度：${value("#feedbackScope")}`,
+          `- 装备或 Boss：${value("#feedbackTarget")}`,
+          "",
+          "## 页面",
+          window.location.origin + window.location.pathname.replace(/feedback\.html$/, "index.html"),
+        ].join("\n");
+        const params = new URLSearchParams({
+          title: `[反馈] ${title}`,
+          body,
+          labels: "feedback",
+        });
+        window.open(`${repoIssueUrl}?${params.toString()}`, "_blank", "noreferrer");
+      });
+    </script>
+  </body>
+</html>
